@@ -1,0 +1,94 @@
+<!--
+SPDX-License-Identifier: MIT
+See LICENSE.txt for more information.
+-->
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Camera Preview</title>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="camera-preview.css" />
+    </head>
+    <body>
+        <dialog id="errorMessageDialog">
+            <form>
+                <p id="errorMessage"></p>
+                <p class="right">
+                    <button id="errorMessageOkButton" type="submit" value="default">OK</button>
+                </p>
+            </form>
+        </dialog>
+        <dialog id="selectDeviceDialog">
+            <form>
+                <p>
+                    <label>
+                        映像デバイス:<br />
+                        <select id="videoDeviceList"></select>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        映像解像度:<br />
+                        <select id="videoResolutionList"></select>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        映像フレームレート:<br />
+                        <select id="videoFrameRateList"></select>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        音声デバイス:<br />
+                        <select id="audioDeviceList"></select>
+                    </label>
+                </p>
+                <p class="right">
+                    <button class="cancellink" type="submit" value="cancel" formmethod="dialog" formnovalidate>
+                        キャンセル
+                    </button>
+                    <button id="selectDeviceConfirmButton" type="submit" value="confirm">設定を反映</button>
+                </p>
+            </form>
+        </dialog>
+        <div class="video-box">
+            <video class="video" autoplay playsinline disablePictureInPicture oncontextmenu="return false;"></video>
+        </div>
+        <div class="button-box">
+            <button
+                id="video-mute-switch"
+                class="video-mute-button button-emoji"
+                type="button"
+                aria-label="映像の表示／非表示切り替え"
+            >
+                &#x1f4f7;&#xfe0e;
+            </button>
+            <button
+                id="audio-mute-switch"
+                class="audio-mute-button button-emoji"
+                type="button"
+                aria-label="音声のミュート切り替え"
+            >
+                &#x1f508;&#xfe0e;
+            </button>
+            <input
+                type="range"
+                id="volume-slider"
+                class="audio-volume-slider"
+                style="--video-volume: 100%"
+                min="0"
+                max="100"
+                value="100"
+                step="1"
+                aria-label="音声ボリューム"
+            />
+            <button id="settings-button" class="settings-button button-emoji" type="button" aria-label="デバイスの設定">
+                &#x2699;&#xfe0e;
+            </button>
+        </div>
+        <script src="camera-preview.js"></script>
+    </body>
+</html>

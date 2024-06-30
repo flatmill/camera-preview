@@ -1,0 +1,249 @@
+/* SPDX-License-Identifier: MIT */
+/* See LICENSE.txt for more information. */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #f8f8f8 25%, transparent 25%, transparent 75%, #f8f8f8 75%),
+        linear-gradient(45deg, #f8f8f8 25%, transparent 25%, transparent 75%, #f8f8f8 75%);
+    background-size: 100px 100px;
+    background-position:
+        0 50px,
+        50px 100px;
+    background-color: white;
+    animation: 1s linear 0s infinite normal none running scrollanim;
+    touch-action: none;
+    cursor: none;
+}
+body.cursorvisible {
+    cursor: default;
+}
+@keyframes scrollanim {
+    0% {
+        background-position:
+            0 50px,
+            50px 100px;
+    }
+    100% {
+        background-position:
+            50px 0,
+            100px 50px;
+    }
+}
+dialog {
+    font-size: 20px;
+    box-sizing: border-box;
+    padding: 1em;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    cursor: default;
+}
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+}
+dialog select {
+    font-size: 20px;
+    padding: 8px 2px;
+    width: 100%;
+    height: 48px;
+}
+dialog .right {
+    text-align: right;
+    margin-bottom: 0;
+}
+dialog p button {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 4px 16px;
+    border-radius: 32px;
+    border: solid 2px ButtonBorder;
+    background-color: ButtonFace;
+    color: ButtonText;
+    cursor: pointer;
+}
+dialog p button:hover {
+    color: HighlightText;
+    background-color: Highlight;
+}
+dialog p button.cancellink {
+    background: none;
+    border: none;
+    color: LinkText;
+    font-weight: normal;
+}
+dialog p button.cancellink:hover {
+    text-decoration: underline;
+    color: ActiveText;
+    background: none;
+}
+.video-box {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+.video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.button-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.5s 2.8s;
+}
+.button-box:focus-within,
+.button-box:hover,
+body.active .button-box {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+.button-emoji {
+    position: absolute;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1;
+    font-size: 32px;
+    font-weight: 900;
+    text-align: center;
+    color: gray;
+    text-shadow:
+        1px 1px 0 white,
+        -1px -1px 0 white,
+        -1px 1px 0 white,
+        1px -1px 0 white,
+        0px 1px 0 white,
+        0 -1px 0 white,
+        -1px 0 0 white,
+        1px 0 0 white;
+    opacity: 0.25;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+.button-emoji:focus,
+.button-emoji:hover {
+    opacity: 1;
+}
+.button-emoji:active {
+    opacity: 1;
+    color: white;
+    text-shadow:
+        1px 1px 0 black,
+        -1px -1px 0 black,
+        -1px 1px 0 black,
+        1px -1px 0 black,
+        0px 1px 0 black,
+        0 -1px 0 black,
+        -1px 0 0 black,
+        1px 0 0 black;
+}
+.button-disabled::after {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.8em;
+    height: 1.8em;
+    font-size: 32px;
+    text-align: center;
+    border: none;
+    margin: 0;
+    padding: 0;
+    content: '\0ff3c';
+}
+.video-mute-button {
+    top: 0;
+    right: 7.2em;
+}
+.audio-mute-button {
+    top: 0;
+    right: 5.4em;
+}
+.settings-button {
+    top: 0;
+    right: 0;
+}
+.audio-volume-slider {
+    box-sizing: content-box;
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    position: absolute;
+    margin: 0.1em 0.4em 0 0;
+    padding: 0;
+    width: 3.2em;
+    height: 1.7em;
+    line-height: 1;
+    font-size: 32px;
+    right: 1.8em;
+    opacity: 0.25;
+    cursor: pointer;
+}
+.audio-volume-slider::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(to right, #888 var(--video-volume), #ccc var(--video-volume));
+    width: 100%;
+    height: 0.3em;
+    border: solid 0.0375em white;
+    border-radius: 0.15em;
+}
+.audio-volume-slider:active::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, white var(--video-volume), rgba(128, 128, 128, 0.125) var(--video-volume));
+    border: solid 0.0375em black;
+}
+.audio-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0.6em;
+    height: 0.6em;
+    margin-top: -0.175em;
+    border: solid 0.0375em white;
+    border-radius: 50%;
+    background: gray;
+}
+.audio-volume-slider:active::-webkit-slider-thumb {
+    border: solid 0.0375em black;
+    background: white;
+}
+.audio-volume-slider::-moz-range-track {
+    background: #ccc;
+    background: linear-gradient(to right, #888 var(--video-volume), #ccc var(--video-volume));
+    font-size: 28px;
+    width: 100%;
+    height: 0.3em;
+    border: solid 0.0375em white;
+    border-radius: 0.3em;
+}
+.audio-volume-slider:active::-moz-range-track {
+    background: linear-gradient(to right, white var(--video-volume), rgba(128, 128, 128, 0.125) var(--video-volume));
+    border: solid 0.0375em black;
+}
+.audio-volume-slider::-moz-range-thumb {
+    font-size: 28px;
+    width: 0.6em;
+    height: 0.6em;
+    margin-top: -0.175em;
+    border: solid 0.0375em white;
+    border-radius: 50%;
+    background: gray;
+}
+.audio-volume-slider:active::-moz-range-thumb {
+    border: solid 0.0375em black;
+    background: white;
+}
+.audio-volume-slider:focus,
+.audio-volume-slider:hover {
+    opacity: 1;
+}
