@@ -4,6 +4,10 @@
 
 ブラウザ上でウェブカメラの映像と音声を再生するウェブページです。
 
+## デモ
+
+[GitHub Pages上のCamera Preview サイト](https://flatmill.github.io/camera-preview/)
+
 ## 説明
 
 - Web カメラなど入力デバイスの映像と音声をブラウザ上で表示・再生します。

@@ -4,6 +4,10 @@
 
 This is a web page that plays webcam video and audio on the browser.
 
+## DEMO
+
+[Camera Preview site on GitHub Pages](https://flatmill.github.io/camera-preview/)
+
 ## Description
 
 - Displays and plays video and audio from a webcam or other input device in the browser.
