@@ -61,6 +61,7 @@ dialog p button {
     color: ButtonText;
     cursor: pointer;
 }
+dialog p button:focus,
 dialog p button:hover {
     color: HighlightText;
     background-color: Highlight;
